@@ -51,14 +51,35 @@
 
 .surr-area-hightlights .icon-house {
     position: absolute;
-    left: -12px;
-    background: yellow;
+    left: -5px;
+    background: purple;
     box-shadow: 0 0 10px #ccc;
-    border-radius: 8em 4em;
-    padding: 0.25em;
+    border-radius: 15px;
+    padding: 2px 4px;
     cursor: pointer;
+    color: #fff;
+    bottom: 4px;
 }
 .red-border {
-	border: 1px solid red;
+	background:rgba(0,0,0,0.01);
+	border-top: 1px solid purple;
+	border-bottom: 1px solid purple;
 	padding: 2em;
+}
+.special-section {
+    position: relative;
+    margin: 10px 0;
+	padding: 0 5px 10px 5px;
+	background:rgba(0,0,0,0.01);
+	border-top: 1px solid purple;
+	border-bottom: 1px solid purple;
+}
+.special-section em {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: purple;
+    color: white;
+    padding: 3px 7px;
+    border-radius: 10px 0;
 }

@@ -31,6 +31,15 @@ class Card extends Component {
 			}
 		}
 		
+		handleSurrAreaNoFocus = () => {
+			const text = window.getSelection().toString();
+			if(text.split('').length > 0) {
+				this.setState({ highlights: false });
+			} else {
+				this.setState({ highlights: true });
+			}
+		}
+		
 		componentDidMount() {
 		const newTxtEditted = localStorage.getItem('rgvillasurtxt');
 			this.setState({
@@ -62,11 +71,14 @@ class Card extends Component {
 				 <p>{this.props.pagetitle.pincode}</p>
 				 <h5 className="purple-text">Owner's Name</h5>
 				 {this.props.pagetitle.ownersname == "" ? <p><em>Not received any input from client</em></p> :  <p>{this.props.pagetitle.ownersname}</p>}
-				 <h5 className="purple-text">Surrounding Area</h5>
-				 { this.state.surrandnwtxt == null? <p className="surr-area-hightlights" onMouseUp={this.handleSurrAreaFocus}>
+				 <div className="special-section">
+					<em>Text select portion, drag on text to select</em>
+					<h5 className="purple-text">Surrounding Area</h5>
+				 { this.state.surrandnwtxt == null? <p className="surr-area-hightlights" onMouseEnter={this.handleSurrAreaFocus} onMouseLeave={this.handleSurrAreaNoFocus}>
 				 {this.state.highlights ? <span className="icon-house" onClick={this.showPara}><i className="material-icons">create</i></span> : null}
 				 {this.props.pagetitle.surrarea}
 				 </p> : <p>{ReactHtmlParser(html)}</p>}
+				 </div>
 				 <h5 className="purple-text">Construction Quality</h5>
 				 <p>{this.props.pagetitle.contquality}</p>
 				 <h5 className="purple-text">Villa Decor</h5>
